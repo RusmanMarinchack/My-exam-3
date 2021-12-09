@@ -1,0 +1,94 @@
+@mixin flex($jc, $ai, $fd){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+}
+
+@mixin bacground($url, $bp, $bs){
+    background: url($url) no-repeat;
+    background-position: $bp;
+    background-size: $bs;
+}
+
+@mixin slider($arrow, $btnR-1, $btnR-2, $btnL-1, $btnL-2){
+          & .slick-list {
+            overflow: hidden;
+          }
+          & .slick-track {
+            display: flex;
+          }
+          & .slick-arrow {
+            font-size: 0;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            position: absolute;
+            bottom: -45px;
+            z-index: 1;
+            transition: 0.4s;
+            &:hover{
+              width: 50px;
+              height: 50px;
+            }
+          }
+          & .slick-prev {
+            background: url($arrow) 0 0 / 100% no-repeat;
+            transform: rotate(180deg);
+            left: $btnL-1;
+            right: $btnR-1;
+          }
+          & .slick-next {
+            background: url($arrow) 0 0 / 100% no-repeat;
+            left: $btnL-2;
+            right: $btnR-2;
+          }
+        
+    }
+
+@mixin before($top, $bottom, $h, $b){
+    content: "";
+    position: absolute;
+    top: $top;
+    bottom: $bottom;
+    width: 100%;
+    height: $h;
+    background: $b;
+  }
+
+@mixin hover-btn(){
+  &::after{
+    content: '';
+    width: 30px;
+    height: 15px;
+    position: absolute;
+    bottom: -3px;
+    left: calc(50% - 15px);
+    border-radius: 10px;
+    background: rgb(255, 166, 0);
+    box-shadow: 0px 0px 20px 0px rgb(255, 166, 0);
+    transition: all 0.5s;
+  }
+  &:hover::after{
+    width: 80%;
+    left: 10%;
+    height: 70%;
+    bottom: 0;
+    border-radius: 30px;
+    transition-delay: 0.4s;
+    // box-shadow: 0px 0px 0px 0px rgb(255, 166, 0);
+  }
+  .btn-span{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.4s;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    @include flex(center, center, none);
+  }
+  .btn-span:hover{
+    letter-spacing: 1px;
+  }
+}
