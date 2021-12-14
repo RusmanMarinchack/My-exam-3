@@ -424,6 +424,7 @@ body {
   width: 180px;
   height: 50px;
   fill: #275553;
+  cursor: pointer;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
